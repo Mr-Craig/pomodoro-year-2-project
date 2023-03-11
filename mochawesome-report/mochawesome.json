@@ -1,0 +1,762 @@
+{
+  "stats": {
+    "suites": 17,
+    "tests": 16,
+    "passes": 16,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-03-22T18:37:50.092Z",
+    "end": "2022-03-22T18:37:51.949Z",
+    "duration": 1857,
+    "testsRegistered": 16,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f9749e9e-5658-43b2-b563-81a84227e35c",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [
+        {
+          "title": "\"after all\" hook in \"{root}\"",
+          "fullTitle": "\"after all\" hook in \"{root}\"",
+          "timedOut": false,
+          "duration": 0,
+          "state": null,
+          "speed": null,
+          "pass": false,
+          "fail": false,
+          "pending": false,
+          "context": null,
+          "code": "done();",
+          "err": {},
+          "uuid": "9f6628e0-c00c-449b-a000-89fc33afbddb",
+          "parentUUID": "f9749e9e-5658-43b2-b563-81a84227e35c",
+          "isHook": true,
+          "skipped": false
+        }
+      ],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "90cde6f8-779b-4039-9d4f-9ad457de7076",
+          "title": "Database",
+          "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+          "file": "\\test\\test.js",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should return amount of users",
+              "fullTitle": "Database should return amount of users",
+              "timedOut": false,
+              "duration": 15,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "db.execute('SELECT COUNT(*) AS user_count FROM users').then((rows) => {\n    assert.notStrictEqual(typeof(rows[0][0].user_count), \"undefined\");\n    done();\n}).catch((err) => {\n    done(err);\n});",
+              "err": {},
+              "uuid": "4c289b3f-50cd-4b0f-abbd-07f328d27d79",
+              "parentUUID": "90cde6f8-779b-4039-9d4f-9ad457de7076",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "4c289b3f-50cd-4b0f-abbd-07f328d27d79"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 15,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        },
+        {
+          "uuid": "a07b1d05-7489-439d-8d7d-6bc9588aa3fd",
+          "title": "REST API (Unauthenticated)",
+          "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+          "file": "\\test\\test.js",
+          "beforeHooks": [],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"REST API (Unauthenticated)\"",
+              "fullTitle": "REST API (Unauthenticated) \"after all\" hook in \"REST API (Unauthenticated)\"",
+              "timedOut": false,
+              "duration": 2,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "db.execute('DELETE FROM users WHERE email = \"test@test.com\"').then((rows) => {\n    done();\n}).catch((err) => {\n    console.log(err);\n})",
+              "err": {},
+              "uuid": "fae65315-80a2-4387-9601-9693eb5c6371",
+              "parentUUID": "a07b1d05-7489-439d-8d7d-6bc9588aa3fd",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "9006d074-25d4-4ce5-9659-da58c4bb16ba",
+              "title": "POST /register",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "return a JSON Object containing \"success\" and it should equal true",
+                  "fullTitle": "REST API (Unauthenticated) POST /register return a JSON Object containing \"success\" and it should equal true",
+                  "timedOut": false,
+                  "duration": 507,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .post('/register')\n    .send({\n        email: \"test@test.com\"\n    })\n    .set('Accept', 'application/json')\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.success, true);\n        done();\n    });",
+                  "err": {},
+                  "uuid": "0f799a46-0940-4b74-b111-4f86a7869546",
+                  "parentUUID": "9006d074-25d4-4ce5-9659-da58c4bb16ba",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "return a JSON object with \"success\" equal to false and \"reason\" equal to \"E-mail already exists.\"",
+                  "fullTitle": "REST API (Unauthenticated) POST /register return a JSON object with \"success\" equal to false and \"reason\" equal to \"E-mail already exists.\"",
+                  "timedOut": false,
+                  "duration": 5,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .post('/register')\n    .send({\n        email: \"test@test.com\"\n    })\n    .set('Accept', 'application/json')\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.success, false);\n        assert.strictEqual(res.body.reason, \"E-mail already exists.\");\n        done();\n    });",
+                  "err": {},
+                  "uuid": "5863f931-a29e-40bc-a48d-b23ed04851d6",
+                  "parentUUID": "9006d074-25d4-4ce5-9659-da58c4bb16ba",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [
+                {
+                  "uuid": "8d8c2769-f83e-4f80-b8e0-c32900709ae1",
+                  "title": "POST /register/finishRegister",
+                  "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+                  "file": "\\test\\test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "return a JSON Object containing \"success\" and it should equal true and set cookie",
+                      "fullTitle": "REST API (Unauthenticated) POST /register POST /register/finishRegister return a JSON Object containing \"success\" and it should equal true and set cookie",
+                      "timedOut": false,
+                      "duration": 69,
+                      "state": "passed",
+                      "speed": "medium",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "db.execute('SELECT register_token FROM users WHERE email = \"test@test.com\"').then((rows) => {\n    const register_token = rows[0][0].register_token;\n    request(app)\n    .post('/register/finishRegister')\n    .send({\n        register_token: register_token,\n        password:\"testpass1\",\n        username:\"testuser2\"\n    })\n    .set('Accept', 'application/json')\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .expect('set-cookie', /token/)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.success, true);\n        done();\n    });\n}).catch((err) => {\n    done(err);  \n});",
+                      "err": {},
+                      "uuid": "b17eab96-f186-4de4-af38-7d9c1ebbf363",
+                      "parentUUID": "8d8c2769-f83e-4f80-b8e0-c32900709ae1",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "b17eab96-f186-4de4-af38-7d9c1ebbf363"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 69,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 1000
+                }
+              ],
+              "passes": [
+                "0f799a46-0940-4b74-b111-4f86a7869546",
+                "5863f931-a29e-40bc-a48d-b23ed04851d6"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 512,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            },
+            {
+              "uuid": "d8b9fac3-c0f8-4901-8f87-a7be337cc208",
+              "title": "POST /login",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "return a JSON Object containing \"success\" and it should equal true and sets user cookie",
+                  "fullTitle": "REST API (Unauthenticated) POST /login return a JSON Object containing \"success\" and it should equal true and sets user cookie",
+                  "timedOut": false,
+                  "duration": 63,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .post('/login')\n    .send({\n        email: \"test@test.com\",\n        password:\"testpass1\"\n    })\n    .set('Accept', 'application/json')\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .expect('set-cookie', /token/)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.success, true);\n        done();\n    });",
+                  "err": {},
+                  "uuid": "e4e55d93-30b7-40bb-8b03-6ce6f58dadb5",
+                  "parentUUID": "d8b9fac3-c0f8-4901-8f87-a7be337cc208",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e4e55d93-30b7-40bb-8b03-6ce6f58dadb5"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 63,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            },
+            {
+              "uuid": "a987a46c-6bf6-46e2-9e75-2f65683f22df",
+              "title": "POST /reset-password",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "return a JSON Object containing \"success\" and it should equal true",
+                  "fullTitle": "REST API (Unauthenticated) POST /reset-password return a JSON Object containing \"success\" and it should equal true",
+                  "timedOut": false,
+                  "duration": 463,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .post('/reset-password')\n    .send({\n        email: \"test@test.com\"\n    })\n    .set('Accept', 'application/json')\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.success, true);\n        done();\n    });",
+                  "err": {},
+                  "uuid": "86aa7bb2-face-4b72-ac11-4fd8dad0056e",
+                  "parentUUID": "a987a46c-6bf6-46e2-9e75-2f65683f22df",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [
+                {
+                  "uuid": "e9e2fb4d-16c6-4e46-845d-030427a0d24c",
+                  "title": "POST /reset-password/finish",
+                  "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+                  "file": "\\test\\test.js",
+                  "beforeHooks": [],
+                  "afterHooks": [],
+                  "tests": [
+                    {
+                      "title": "return a JSON Object containing \"success\" and it should equal true",
+                      "fullTitle": "REST API (Unauthenticated) POST /reset-password POST /reset-password/finish return a JSON Object containing \"success\" and it should equal true",
+                      "timedOut": false,
+                      "duration": 68,
+                      "state": "passed",
+                      "speed": "medium",
+                      "pass": true,
+                      "fail": false,
+                      "pending": false,
+                      "context": null,
+                      "code": "db.execute('SELECT reset_token FROM users WHERE email = \"test@test.com\"').then((rows) => {\n    const reset_token = rows[0][0].reset_token;\n    request(app)\n    .post('/reset-password/finish')\n    .send({\n        reset_token: reset_token,\n        password:\"testpass123\"\n    })\n    .set('Accept', 'application/json')\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.success, true);\n        done();\n    });\n}).catch((err) => {\n    done(err);  \n});",
+                      "err": {},
+                      "uuid": "42309eee-f24d-44ae-84ba-f27368bd133a",
+                      "parentUUID": "e9e2fb4d-16c6-4e46-845d-030427a0d24c",
+                      "isHook": false,
+                      "skipped": false
+                    }
+                  ],
+                  "suites": [],
+                  "passes": [
+                    "42309eee-f24d-44ae-84ba-f27368bd133a"
+                  ],
+                  "failures": [],
+                  "pending": [],
+                  "skipped": [],
+                  "duration": 68,
+                  "root": false,
+                  "rootEmpty": false,
+                  "_timeout": 1000
+                }
+              ],
+              "passes": [
+                "86aa7bb2-face-4b72-ac11-4fd8dad0056e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 463,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 1000
+        },
+        {
+          "uuid": "f7ffc64d-6394-4f1f-9712-39e3e5155a1c",
+          "title": "REST API (Authenticated)",
+          "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+          "file": "\\test\\test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before each\" hook in \"REST API (Authenticated)\"",
+              "fullTitle": "REST API (Authenticated) \"before each\" hook in \"REST API (Authenticated)\"",
+              "timedOut": false,
+              "duration": 62,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Grab a JWT token in order to do authenticated requests.\nrequest(app)\n.post('/login')\n.send({email: \"test@example.com\", password: \"testing\"})\n.end(function(err ,res) {\n    if(err) {\n        return done(err);\n    }\n    if(res.body.success) {\n        if(typeof(res.headers['set-cookie'][0]) !== \"undefined\") {\n            cookie = res.headers['set-cookie'][0];\n            done();\n        } else {\n            done(new Error(\"Unable to parse cookie\"));\n        }\n    } else {\n        done(new Error(\"Server returned an error when getting JWT\"));\n    }\n})",
+              "err": {},
+              "uuid": "3c796e43-f77e-42ae-92ad-294a0d400105",
+              "parentUUID": "f7ffc64d-6394-4f1f-9712-39e3e5155a1c",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "5aa2282c-c934-476e-8b5c-79bd1262e5c8",
+              "title": "POST /analytics/createSession",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "returns the session id",
+                  "fullTitle": "REST API (Authenticated) POST /analytics/createSession returns the session id",
+                  "timedOut": false,
+                  "duration": 7,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .post('/analytics/createSession')\n    .send()\n    .set('Accept', 'application/json')\n    .set('cookie', cookie)\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        sessionId = res.body.sessionId;\n        assert.strictEqual(res.body.err, false);\n        done();\n    });",
+                  "err": {},
+                  "uuid": "3869a48f-7c3f-456f-bddc-d829fcc4bde2",
+                  "parentUUID": "5aa2282c-c934-476e-8b5c-79bd1262e5c8",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "3869a48f-7c3f-456f-bddc-d829fcc4bde2"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            },
+            {
+              "uuid": "3cba2a54-d027-42a6-81d8-1afe24901824",
+              "title": "POST /analytics/updateSession",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return err: false",
+                  "fullTitle": "REST API (Authenticated) POST /analytics/updateSession should return err: false",
+                  "timedOut": false,
+                  "duration": 6,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .post('/analytics/updateSession')\n    .send({\n        sessionId: sessionId,\n        time: 100,\n        completed: true\n    })\n    .set('Accept', 'application/json')\n    .set('cookie', cookie)\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.err, false);\n        done();\n    });",
+                  "err": {},
+                  "uuid": "85fa232f-6834-4287-b597-194f9df9ae00",
+                  "parentUUID": "3cba2a54-d027-42a6-81d8-1afe24901824",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "85fa232f-6834-4287-b597-194f9df9ae00"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 6,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            },
+            {
+              "uuid": "6413a335-bb8e-400f-bffa-3275348b2cfb",
+              "title": "GET /settings/get",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return err: false and with the users settings",
+                  "fullTitle": "REST API (Authenticated) GET /settings/get should return err: false and with the users settings",
+                  "timedOut": false,
+                  "duration": 7,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .get('/settings/get')\n    .send()\n    .set('Accept', 'application/json')\n    .set('cookie', cookie)\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.err, false);\n        assert.notStrictEqual(typeof(res.body.settings), \"undefined\");\n        done();\n    });",
+                  "err": {},
+                  "uuid": "56e5b2c6-2e55-4660-b07e-7848da10b349",
+                  "parentUUID": "6413a335-bb8e-400f-bffa-3275348b2cfb",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "56e5b2c6-2e55-4660-b07e-7848da10b349"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 7,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            },
+            {
+              "uuid": "084f0018-21df-4279-aacb-6d579dfcd342",
+              "title": "POST /settings/update",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return err: false",
+                  "fullTitle": "REST API (Authenticated) POST /settings/update should return err: false",
+                  "timedOut": false,
+                  "duration": 4,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .post('/settings/update')\n    .send({\n        pomodoro_work_period: 10,\n        pomodoro_break_period: 5,\n        auto_start_breaks: true,\n        auto_start_pomodoros: false,\n        alarm_sound: true,\n        alarm_volume: 50,\n        alarm_sound_type: 2,\n        notification: true\n    })\n    .set('Accept', 'application/json')\n    .set('cookie', cookie)\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.err, false);\n        done();\n    });",
+                  "err": {},
+                  "uuid": "c33ee2c2-b473-42a8-a427-4b6974a5b73d",
+                  "parentUUID": "084f0018-21df-4279-aacb-6d579dfcd342",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c33ee2c2-b473-42a8-a427-4b6974a5b73d"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            },
+            {
+              "uuid": "17d388f7-0d6f-4b86-95e6-2b73e4581e06",
+              "title": "GET /tasks/get",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return err: false and todo list",
+                  "fullTitle": "REST API (Authenticated) GET /tasks/get should return err: false and todo list",
+                  "timedOut": false,
+                  "duration": 4,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .get('/tasks/get')\n    .send()\n    .set('Accept', 'application/json')\n    .set('cookie', cookie)\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.err, false);\n        assert.notStrictEqual(typeof(res.body.todo), \"undefined\");\n        done();\n    });",
+                  "err": {},
+                  "uuid": "c8e4a78c-3e4d-4737-bdb0-befc911ddf38",
+                  "parentUUID": "17d388f7-0d6f-4b86-95e6-2b73e4581e06",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "c8e4a78c-3e4d-4737-bdb0-befc911ddf38"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            },
+            {
+              "uuid": "18f35c9a-a109-4042-83f8-49e79b2575ce",
+              "title": "POST /tasks/create",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return err: false and task ID",
+                  "fullTitle": "REST API (Authenticated) POST /tasks/create should return err: false and task ID",
+                  "timedOut": false,
+                  "duration": 5,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .post('/tasks/create')\n    .send({\n        task_name: \"Test Task!\"\n    })\n    .set('Accept', 'application/json')\n    .set('cookie', cookie)\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.err, false);\n        assert.notStrictEqual(typeof(res.body.taskId), \"undefined\");\n        taskId = res.body.taskId;\n        done();\n    });",
+                  "err": {},
+                  "uuid": "0b8aa278-c7eb-457f-a48e-e51b3e5e92dc",
+                  "parentUUID": "18f35c9a-a109-4042-83f8-49e79b2575ce",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "0b8aa278-c7eb-457f-a48e-e51b3e5e92dc"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 5,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            },
+            {
+              "uuid": "19fad32f-0619-4af0-b560-3988dae418bf",
+              "title": "POST /tasks/update",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return err: false",
+                  "fullTitle": "REST API (Authenticated) POST /tasks/update should return err: false",
+                  "timedOut": false,
+                  "duration": 5,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .post('/tasks/update')\n    .send({\n        task_id: taskId,\n        completed: true\n    })\n    .set('Accept', 'application/json')\n    .set('cookie', cookie)\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.err, false);\n        done();\n    });",
+                  "err": {},
+                  "uuid": "6a9df4a8-2ffe-4f36-a74c-c6e772e77f1f",
+                  "parentUUID": "19fad32f-0619-4af0-b560-3988dae418bf",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "6a9df4a8-2ffe-4f36-a74c-c6e772e77f1f"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 5,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            },
+            {
+              "uuid": "639648dd-e712-4be4-b90b-075e2f775044",
+              "title": "DELETE /tasks/:id",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return err: false",
+                  "fullTitle": "REST API (Authenticated) DELETE /tasks/:id should return err: false",
+                  "timedOut": false,
+                  "duration": 5,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .delete(`/tasks/${taskId}`)\n    .send()\n    .set('Accept', 'application/json')\n    .set('cookie', cookie)\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.err, false);\n        done();\n    });",
+                  "err": {},
+                  "uuid": "1b0a5fbb-375a-48cb-9e5d-87b5294588f9",
+                  "parentUUID": "639648dd-e712-4be4-b90b-075e2f775044",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "1b0a5fbb-375a-48cb-9e5d-87b5294588f9"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 5,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            },
+            {
+              "uuid": "8664a27e-3616-4f5c-9879-d8d5491da0e0",
+              "title": "GET /api/analytics",
+              "fullFile": "R:\\Work\\pomodoro-year-2-project\\test\\test.js",
+              "file": "\\test\\test.js",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "should return success: true and all the users analytics",
+                  "fullTitle": "REST API (Authenticated) GET /api/analytics should return success: true and all the users analytics",
+                  "timedOut": false,
+                  "duration": 44,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "request(app)\n    .get(`/api/analytics`)\n    .send()\n    .set('Accept', 'application/json')\n    .set('cookie', cookie)\n    .expect('Content-Type', /json/)\n    .expect(200)\n    .end(function(err, res) {\n        if(err) {\n            return done(err);\n        }\n        assert.strictEqual(res.body.success, true);\n        assert.notStrictEqual(typeof(res.body.user), \"undefined\");\n        assert.notStrictEqual(typeof(res.body.sessions), \"undefined\");\n        assert.notStrictEqual(typeof(res.body.leaderboard), \"undefined\");\n        done();\n    });",
+                  "err": {},
+                  "uuid": "bcd3dad0-9efa-44fa-aa58-49a7476ae92a",
+                  "parentUUID": "8664a27e-3616-4f5c-9879-d8d5491da0e0",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "bcd3dad0-9efa-44fa-aa58-49a7476ae92a"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 44,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 1000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 1000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "9.2.2"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.2"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.1.1"
+    }
+  }
+}

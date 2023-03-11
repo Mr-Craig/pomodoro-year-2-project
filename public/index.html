@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script
+      src="https://kit.fontawesome.com/7bd744180e.js"
+      crossorigin="anonymous"> 
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>PomoThink</title>
+</head>
+
+<body class="font-Roboto">
+  <!-- Header -->
+  <header class="body-font bg-pomo-gray py-12">  
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between flex-wrap bg-pomo-gray p-4 fixed w-full z-10 top-0">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <!-- Logo -->
+        <a href="index.html" class="cursor-pointer flex items-center">
+          <div class="sm:flex flex-1 mb-3">
+            <img class="w-3/4" src="./imgs/PomoThink Logo.png">
+          </div>
+        </a>
+      </div>
+      <!-- Hamburger Menu -->
+      <div class="block lg:hidden">
+        <button id="nav-toggle" class="flex items-center px-3 py-2 border rounded text-gray-500 border-gray-600 hover:text-white hover:border-white">
+          <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+        </button>
+      </div>
+  
+      <!-- Navbar links -->
+      <div class="w-full flex-grow lg:flex lg:items-center lg:w-auto hidden lg:block pt-6 lg:pt-0" id="nav-content">
+        <ul class="list-reset lg:flex justify-end flex-1 items-center mt-3">
+          <li class="mr-3">
+            <a class="py-2 px-4 inline-block text-white no-underline transition ease-in-out border-b-2 border-opacity-0 border-pomo-orange hover:border-opacity-100 hover:text-pomo-orange hover:text-underline duration-300" href="#Features">Features
+            </a>
+          </li>
+          <li class="mr-3">
+            <a class="py-2 px-4 inline-block text-white no-underline transition ease-in-out border-b-2 border-opacity-0 border-pomo-orange hover:border-opacity-100 hover:text-pomo-orange hover:text-underline duration-300" href="#About">About</a>
+          </li>
+          <li class="mr-3">
+            <a class="py-2 px-4 inline-block text-white no-underline transition ease-in-out border-b-2 border-opacity-0 border-pomo-orange hover:border-opacity-100 hover:text-pomo-orange hover:text-underline duration-300" href="#Charity">Charity</a>
+          </li>
+          <li class="mr-3">
+            <a class="py-2 px-4 inline-block text-white no-underline transition ease-in-out border-b-2 border-opacity-0 border-pomo-orange hover:border-opacity-100 hover:text-pomo-orange hover:text-underline duration-300" href="#Testimonials">Testimonials</a>
+          </li>
+          <a href="/login"><button class="inline-flex items-center py-1 px-3 focus:outline-none rounded-2xl text-base mt-4 md:mt-0 sm:mx-4 bg-pomo-gray text-white border-2 transition ease-in-out hover:bg-pomo-light-gray hover:text-black hover:border-opacity-0 duration-300">Login 
+          </button></a>
+          <a href="Donation.html"><button class="inline-flex items-center py-1.5 px-10 focus:outline-none rounded-2xl text-base mt-4 md:mt-0  bg-pomo-orange text-white transition ease-in-out hover:bg-pomo-light-gray hover:text-black duration-300">Donate 
+          </button></a>
+        </ul>
+      </div>
+    </nav>  
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-pomo-gray text-white body-font">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Study Smarter
+          <br class="hidden lg:inline-block">
+        </h1>
+        <p class="mb-8 leading-relaxed">Our goal is to provide learners with the tools and habits to study efficiently and complete their tasks. PomoThink takes inspiration from the Pomodoro study technique and supports charitable educational institues to faciliate real change around the world.</p>
+        <div class="flex justify-center">
+          <a href="Login.html"><button class="inline-flex py-2 px-6 focus:outline-none rounded text-lg bg-pomo-gray text-white border-2 transition ease-in-out hover:bg-pomo-orange hover:border-opacity-0 duration-300">Get Started</button></a>
+        </div>
+      </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">  
+        <!-- <img class="object-cover object-center rounded" alt="hero" src="./imgs/working-on-computer.jpg"> -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="Features" class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap w-full mb-20">
+        <!-- Feature Title  -->
+        <!-- <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
+          <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Features</h1>
+          <div class="h-1 w-20 bg-pomo-orange rounded"></div>
+        </div> -->
+        <p class="lg:w-1/2 w-full leading-relaxed text-gray-500"></p>
+      </div>
+      <div class="flex flex-wrap -m-4">
+        <!-- Feature #1 -->
+        <div class="xl:w-1/4 md:w-1/2 p-4 text-center">
+          <div class="bg-gray-100 p-16 rounded-lg">
+            <!-- <img class="rounded w-36 object-cover object-center mb-6" src="./imgs/Feature 1 Picture.png" alt="content"> -->
+            <i class="fas fa-clock fa-10x text-pomo-orange"></i>
+            <h3 class="tracking-widest text-yellow-500 text-xs font-medium title-font"></h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Timer</h2>
+            <p class="leading-relaxed text-base">Pomodoro Timer with customizable intervals and task management.</p>
+          </div>
+        </div>
+        <!-- Feature #2 -->
+        <div class="xl:w-1/4 md:w-1/2 p-4 text-center">
+          <div class="bg-gray-100 p-16 rounded-lg">
+            <!-- <img class="rounded object-cover object-center mb-6" src="" alt="content"> -->
+            <i class="fas fa-user fa-10x text-pomo-orange"></i>
+            <h3 class="tracking-widest text-yellow-500 text-xs font-medium title-font"></h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">User Profile</h2>
+            <p class="leading-relaxed text-base">Profile that allows you to tweak your settings to your desired specification.</p>
+          </div>
+        </div>
+        <!-- Feature #3 -->
+        <div class="xl:w-1/4 md:w-1/2 p-4 text-center">
+          <div class="bg-gray-100 p-16 rounded-lg">
+            <!-- <img class="rounded w-3/4 object-cover object-center mb-6" src="" alt="content"> -->
+            <i class="fas fa-users fa-10x text-pomo-orange"></i>
+            <h3 class="tracking-widest text-yellow-500 text-xs font-medium title-font"></h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Community</h2>
+            <p class="leading-relaxed text-base">Compete with other users and motivate each other to work towards your goals.</p>
+          </div>
+        </div>
+        <!-- Feature #4 -->
+        <div class="xl:w-1/4 md:w-1/2 p-4 text-center">
+          <div class="bg-gray-100 p-16 rounded-lg">
+            <!-- <img class="h-40 rounded w-full object-cover object-center mb-6" src="" alt="content"> -->
+            <i class="fas fa-align-center fa-10x text-pomo-orange"></i>
+            <h3 class="tracking-widest text-yellow-500 text-xs font-medium title-font"></h3>
+            <h2 class="text-lg text-gray-900 font-medium title-font mb-4">Leaderboard & Donations</h2>
+            <p class="leading-relaxed text-base">See where you rank amongst your colleagues on our community leaderboard.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="About" class="text-gray-600 body-font">
+    <!-- About Title -->
+    <div class="container px-5 py-24 mx-auto flex flex-wrap">
+      <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-3xl overflow-hidden">
+        <img alt="feature" class=" h-full" src="./imgs/young-man-study-home-using-laptop-learning-online.webp">
+      </div>
+      <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
+        <!-- What is PomoThink? -->
+        <div class="flex flex-col mb-16 lg:items-start items-center">
+          <!-- Icon 1 -->
+          <div class="flex-grow">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">What is PomoThink?</h2>
+            <p class="leading-relaxed text-base">PomoThink is a platform that facilitates the Pomodoro technqiue while providing unique features. It provides a customizable timer to help you focus on any task you are working on.</p>
+            </a>
+          </div>
+        </div>
+        <!-- What is the Pomodoro Technique -->
+        <div class="flex flex-col mb-16 lg:items-start items-center">
+          <div class="flex-grow">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">What is the Pomodoro Technique?</h2>
+            <p class="leading-relaxed text-base">The Pomodoro Technique is a time management system that encourages people to work with the time they have—rather than against it. Using this method, you break your workday into 25-minute chunks separated by five-minute breaks.</p>
+            </a>
+          </div>
+        </div>
+        <!-- What makes us different? -->
+        <div class="flex flex-col mb-10 lg:items-start items-center">
+          <div class="flex-grow">
+            <h2 class="text-gray-900 text-lg title-font font-medium mb-3">What makes us different?</h2>
+            <p class="leading-relaxed text-base">We provide users with a fun and healthy incentive to acheive their goals, compete with their friends and get tasks done; along with a responsive design and community aspect.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Charity -->
+  <section id="Charity" class="text-gray-600 body-font">
+    <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+      <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Your donation 
+          <br class="hidden lg:inline-block">can change lives
+        </h1>
+        <p class="mb-8 leading-relaxed">Your kind of donation has the potential to change someone's life and provide the world with better education. Our first priority is to give back to the community and provide real change</p>
+        <div class="flex justify-center">
+
+          <a href="Donation.html"><button class="inline-flex text-white bg-yellow-500 border-0 py-2 px-6 focus:outline-none hover:bg-yellow-600 rounded text-lg">Donate</button></a>
+          <a href="https://francescocirillo.com/pages/pomodoro-technique"><button class="ml-4 inline-flex text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Learn More</button></a>
+        </div>
+      </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img class="object-cover object-center rounded-2xl shadow-2xl" alt="hero" src="./imgs/charity-810x476.jpg">
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section id="Testimonials" class="text-gray-600 body-font">
+    <div class="container px-5 py-24 mx-auto">
+      <div class="flex flex-wrap -m-4">
+        <div class="p-4 md:w-1/2 w-full">
+          <div class="h-full bg-gray-100 p-8 rounded">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-gray-400 mb-4" viewBox="0 0 975.036 975.036">
+              <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+            </svg>
+            <p class="leading-relaxed mb-6">Hands down best productivity and time management method I've ever used.</p>
+            <a class="inline-flex items-center">
+              <img alt="testimonial" src="https://dummyimage.com/106x106" class="w-12 h-12 rounded-3xl flex-shrink-0 object-cover object-center">
+              <span class="flex-grow flex flex-col pl-4">
+                <span class="title-font font-medium text-gray-900">Holden Caulfield</span>
+                <span class="text-gray-500 text-sm">UI DEVELOPER</span>
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="p-4 md:w-1/2 w-full">
+          <div class="h-full bg-gray-100 p-8 rounded">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="block w-5 h-5 text-gray-400 mb-4" viewBox="0 0 975.036 975.036">
+              <path d="M925.036 57.197h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.399 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l36 76c11.6 24.399 40.3 35.1 65.1 24.399 66.2-28.6 122.101-64.8 167.7-108.8 55.601-53.7 93.7-114.3 114.3-181.9 20.601-67.6 30.9-159.8 30.9-276.8v-239c0-27.599-22.401-50-50-50zM106.036 913.497c65.4-28.5 121-64.699 166.9-108.6 56.1-53.7 94.4-114.1 115-181.2 20.6-67.1 30.899-159.6 30.899-277.5v-239c0-27.6-22.399-50-50-50h-304c-27.6 0-50 22.4-50 50v304c0 27.601 22.4 50 50 50h145.5c-1.9 79.601-20.4 143.3-55.4 191.2-27.6 37.8-69.4 69.1-125.3 93.8-25.7 11.3-36.8 41.7-24.8 67.101l35.9 75.8c11.601 24.399 40.501 35.2 65.301 24.399z"></path>
+            </svg>
+            <p class="leading-relaxed mb-6">I really appreciate when an application is designed well, but at the same time feels clean and not overwhelming. PomoThink has delivered on every aspect of what a good application should be. I cannot recommend it enough!</p>
+            <a class="inline-flex items-center">
+              <img alt="testimonial" src="https://dummyimage.com/107x107" class="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center">
+              <span class="flex-grow flex flex-col pl-4">
+                <span class="title-font font-medium text-gray-900">Alper Kamu</span>
+                <span class="text-gray-500 text-sm">DESIGNER</span>
+              </span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-gray-600 body-font">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-yellow-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">PomoThink</span>
+      </a>
+      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2022 PomoThink —
+        <a class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Group 5</a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a href="https://www.facebook.com/profile.php?id=100078631697609" class="text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a href="https://twitter.com/PomoThink" class="ml-3 text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/pomothink/" class="ml-3 text-gray-500">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a href="https://www.linkedin.com/in/pomo-think-520467234/" class="ml-3 text-gray-500">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </footer>
+
+	<script>
+		//Javascript to toggle the menu
+		document.getElementById('nav-toggle').onclick = function(){
+			document.getElementById("nav-content").classList.toggle("hidden");
+		}
+	</script>
+
+</body>
+</html>

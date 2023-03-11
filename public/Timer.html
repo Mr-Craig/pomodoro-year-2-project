@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://kit.fontawesome.com/7bd744180e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Timer</title>
+    <style>
+      .active-state {
+        background: white !important;
+        color: black !important;
+      }
+    </style>
+
+</head>
+
+<body class="font-Roboto bg-black" background="./imgs/Timer Page Background.png">
+
+  <!-- Header -->
+  <header class="body-font bg-pomo-gray mb-24">  
+    <!-- Navbar -->
+    <nav class="flex items-center justify-between flex-wrap bg-pomo-gray p-4 fixed w-full z-10 top-0">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <!-- Logo -->
+        <a href="index.html" class="cursor-pointer flex items-center">
+          <div class="flex flex-1 mb-3 items-center">
+            <img class="w-3/4" src="./imgs/PomoThink Logo.png">
+          </div>
+        </a>
+      </div>
+      <!-- Navbar links -->
+      <div class="flex flex-grow">
+        <ul class="flex flex-1 mt-2 justify-end space-x-2 items-center ">
+          <button id="reportButton" class="inline-flex items-center py-1 px-3 focus:outline-none rounded-2xl text-base bg-pomo-gray text-white border-2 transition ease-in-out hover:bg-pomo-light-gray hover:text-black hover:border-opacity-0 duration-300">Report 
+          </button>
+          <button id="settingsButton" class="inline-flex items-center py-1 px-3 focus:outline-none rounded-2xl text-base bg-pomo-gray text-white border-2 transition ease-in-out hover:bg-pomo-light-gray hover:text-black hover:border-opacity-0 duration-300">Settings 
+          </button>
+          <!-- Account Button / Logout-->
+          <button id="profileButton" class="relative z-10 w-8 h-8 rounded-full overflow-hidden focus:outline-none border-2 border-white hover:bg-white transition ease-in-out duration-300">
+            <img class="h-full w-full" src="./imgs/user-solid.svg" alt="">
+          </button>
+          <!-- Username -->
+          <h1 id="" class="text-xl text-white ">{{ username }}</h1>
+          
+          <div id="profileOverlay" class="absolute hidden right-4 mt-32 py-2 rounded-lg bg-white">
+            <a href="/logout" class="block px-4 py-2 text-gray-800 hover:bg-pomo-orange">Logout</a>
+          </div>
+        </ul>
+      </div>
+    </nav>  
+  </header>
+
+  <!-- Settings -->
+  <div id="overlaySettings" class="bg-black bg-opacity-50 absolute inset-0 z-10 hidden justify-center items-center ">
+    <div class="bg-gray-100 rounded p-6 w-96 border-pomo-orange border-8 border-opacity-80">
+      <!-- Timer Settings title -->
+      <div class="flex items-center justify-between">
+        <h1 class="text-xl font-light">TIMER SETTING</h1>
+        <!-- Exit button -->
+        <svg id="exit-modal" class="w-4 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+          <path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/>
+        </svg>
+      </div>
+      <hr class="border-t-1 border-black mt-2 mb-6">
+      <!-- Time (minutes) Section -->
+      <div>
+        <h1 class="text-xl">Time (minutes)</h1>
+      <div class="flex flex-row mt-4 justify-between px-10">
+        <!-- Pomodoro duration -->
+        <div class="flex flex-col text-center">
+          <label for="pomodoroTime" class="mx-2">Pomodoro</label>
+          <input type="number" step=".01" id="pomodoroTime" name="pomodoroTime" class="bg-gray-300 w-24 rounded-md mt-1 text-center">
+        </div>
+        <!-- Break duration -->
+        <div class="flex flex-col text-center">
+          <label for="pomodoroTime" class="mx-2">Break</label>
+          <input type="number" step=".01" id="breakTime" name="breakTime" class="bg-gray-300 w-24 rounded-md mt-1 text-center">
+        </div>
+      </div>
+      <hr class="border-t-1 border-black my-6">
+      </div>
+    <!-- Auto Start Break -->
+    <div class="flex items-center justify-between">
+      <label for="autoStartBreak" class="text-xl">Auto-start Breaks?</label>
+      <input type="checkbox" id="autoStartBreak" name="autoStartBreak" class="bg-gray-200 w-5 h-5 mr-2">
+    </div>
+    <hr class="border-t-1 border-black my-6">
+    <!-- Auto Start Pomodoros -->
+    <div class="flex items-center justify-between">
+      <label for="autoStartPomodoros" class="text-xl">Auto-start Pomodoros?</label>
+      <input type="checkbox" id="autoStartPomodoros" name="autoStartPomodoros" class="bg-gray-200 w-5 h-5 mr-2">
+    </div>
+    <hr class="border-t-1 border-black my-6">
+    <!-- Alarm Sound -->
+    <div class="">
+      <div class="flex justify-between">
+        <label for="alarmSound" class="text-xl">Alarm Sound</label>
+        <input type="checkbox" id="alarmSound" name="alarmSound" class="bg-gray-200 w-5 h-5 mr-2">
+      </div>
+      <div class="flex justify-end mt-4">
+        <select name="alarmSoundType" id="alarmSoundType" class="rounded p-1 bg-gray-300">
+          <option value="0">Sound 1 (Old School Alarm)</option>
+          <option value="1">Sound 2 (Rooster)</option>
+          <option value="2">Sound 3 (Piano Riff)</option>
+          <option value="3">Sound 4 (Notification)</option>
+        </select>
+      </div>
+      <div class="flex justify-end mt-4">
+        <label class="mx-2 -mt-1" for="volume">Alarm Volume</label>
+        <input type="range" id="volume" name="volume" min="0" max="100" class="">
+      </div>
+      <hr class="border-t-1 border-black my-6">
+    </div>
+    <!-- Notification -->
+    <div class="flex items-center justify-between">
+      <label for="notification" class="text-2xl">Notification</label>
+      <input type="checkbox" id="notification" name="notification" class="bg-gray-200 w-5 h-5 mr-2">
+    </div>
+    <!-- Ok Button -->
+    <div class="flex items-center justify-end mt-12 -mx-6 -my-6 p-5 bg-gray-300 rounded-sm">
+      <button id="ok-btn" name="ok" class="bg-pomo-gray text-white p-2 px-7 rounded hover:bg-black transition ease-in-out duration-50">OK</button>
+    </div>
+  </div>
+</div>
+
+<!-- Report -->
+<div id="overlayReport" class="bg-black bg-opacity-50 absolute inset-0 z-10 hidden justify-center items-center">
+  <div id="overlayModal" style="width:540px" class="bg-gray-100 mt-16 rounded p-6 border-pomo-orange border-8 border-opacity-80">
+    <!-- Exit button -->
+    <div id="exit-modal-report" class="flex justify-end -mt-2 mb-4">
+      <svg class="w-4 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+        <path d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/>
+      </svg>
+    </div>
+    <div class="flex justify-center">
+      <div class="flex border-gray-300 border-2 rounded-lg">
+      <button id="summaryButton" class="p-1.5 px-12 font-bold hover:bg-pomo-orange hover:text-white transition: ease-in-out duration-75 text-l border-r-2 border-pomo-orange">Summary</button>
+      <button id="detailButton" class="p-1.5 px-12 font-bold hover:bg-pomo-orange hover:text-white transition: ease-in-out duration-75 text-l border-r-2 border-pomo-orange">Detail</button>
+      <button id="rankingButton" class="p-1.5 px-12 font-bold hover:bg-pomo-orange hover:text-white transition: ease-in-out duration-75 text-l">Ranking</button>
+    </div>
+    </div>
+    <!-- Summary -->
+    <div id="summary" class="">
+    <!-- Activity Summary -->
+    <div class="flex items-center mt-4">
+      <h1 class="whitespace-nowrap mr-4">Activity Summary</h1>
+      <hr class="mt-2 border-black border-t-1 border-opacity-5 w-full">
+    </div>
+    <!-- Stats -->
+    <div class="flex justify-center mt-8 space-x-3">
+      <!-- Hours focused -->
+      <div class="bg-gray-300 flex items-center rounded-sm p-3 py-4 w-36">
+        <img class="w-8 -mt-6" src="./imgs/clock-solid.svg" alt="">
+        <div class="flex flex-col items-end mt-4">
+          <h1 class="text-s font-bold" id="hoursFocused">--</h1>
+          <p class="text-xs font-bold whitespace-nowrap">hours focused</p>
+        </div>
+      </div>
+      <!-- Days accessed -->
+      <div class="bg-gray-300 flex items-center rounded-sm p-3 py-4 w-36">
+        <img class="w-8 -mt-6" src="./imgs/calendar-days-solid.svg" alt="">
+        <div class="flex flex-col items-end mt-4">
+          <h1 class="text-s font-bold" id="daysAccessed">--</h1>
+          <p class="text-xs font-bold whitespace-nowrap">days accessed</p>
+        </div>
+      </div>
+      <!-- Day streak -->
+      <div class="bg-gray-300 flex items-center rounded-sm p-3 py-4 w-36">
+        <img class="w-8 -mt-6" src="./imgs/fire-solid.svg" alt="">
+        <div class="flex flex-col items-end mt-4 ml-6">
+          <h1 class="text-s font-bold" id="daysStreak">--</h1>
+          <p class="text-xs font-bold whitespace-nowrap">day streak</p>
+        </div>
+      </div>
+    </div>
+    <!-- Focus Hours -->
+    <div class="flex items-center mt-8">
+      <h1 class="whitespace-nowrap mr-4">Focus Hours</h1>
+      <hr class="mt-2 border-black border-t-1 border-opacity-5 w-full">
+    </div>
+    <!-- Graph section -->
+    <div class="">
+      <div class="flex mt-4">
+        <canvas id="analyticsCanvas" width="400" height="400">Your browser does not support the canvas element.</canvas>
+      </div>
+    </div>
+    </div>
+    <!-- Detail -->
+    <div id="detail" class="hidden">
+      <!-- Activity Summary -->
+    <div class="flex items-center mt-8">
+      <h1 class="whitespace-nowrap mr-4">Focus Time Detail</h1>
+      <hr class="mt-2 border-black border-t-1 border-opacity-5 w-full">
+    </div>
+    <!-- Detail Table -->
+    <div class="flex mt-6">
+      <table style="min-width: 480px;" class="border-collapse">
+          <tr class="font-bold text-xs text-gray-400 text-left">
+            <th class="py-1">DATE</th>
+            <th>MINUTES</th>
+            <th>COMPLETED?</th>
+          </tr>
+          <tbody id="detailedSessions">
+            
+          </tbody>
+      </table>
+    </div>
+    <hr class="mt-2 border-black border-t-1 border-opacity-5 w-full">
+    </div>
+    <!-- Ranking -->
+    <div id="ranking" class="hidden">
+      <!-- Activity Summary -->
+    <div class="flex items-center mt-8">
+      <h1 class="whitespace-nowrap mr-4">Focus Time This Week</h1>
+      <hr class="mt-2 border-black border-t-1 border-opacity-5 w-full">
+    </div>
+    <!-- Ranking Table -->
+    <div class="flex justify-between mt-6">
+      <table style="min-width: 720px;" class="border-collapse">
+          <tr class="font-bold text-xs text-gray-400 text-left">
+            <th class="py-1" style="width: 50% !important">USER</th>
+            <th>Time(HH:MM:SS)</th>
+          </tr>
+          <tbody id="leaderboardEntries">
+            
+          </tbody>
+      </table>
+    </div>
+    <hr class="mt-2 border-black border-t-1 border-opacity-5 w-full">
+    </div>
+</div>
+</div>
+
+  <!-- Timer section -->
+  <section class="text-white body-font">
+    <div style="width:840px;" class="container flex flex-wrap items-center justify-center text-center mx-auto p-8">
+        <!-- Timer -->
+        <div class="bg-pomo-gray my-6 mx-12 py-20 space-y-8 rounded-2xl w-full">
+           <button id="pomodoroButton" class="font-bold text-xl py-1.5 px-12 focus:outline-none rounded-lg mt-4 bg-pomo-orange text-white disabled:bg-pomo-light-gray disabled:text-black duration-300">Pomodoro 
+            </button>
+            <button id="breakButton" class="font-bold text-xl py-1.5 px-16 focus:outline-none rounded-lg mt-4 bg-pomo-orange text-white disabled:bg-pomo-light-gray disabled:text-black duration-300">Break  
+            </button>
+            <h1 class="text-9xl font-bold pb-10" id="timerElement">25:00</h1>
+            <button id="timerButton" class="py-2 px-16 rounded-lg mt-4 bg-white text-black text-7xl font-medium transition ease-in-out hover:bg-pomo-light-gray hover:text-black duration-300"><span style="padding:10px">Start</span>  
+            </button>
+        </div>
+         <!--Tasks section -->
+        <div class="flex flex-wrap justify-between px-12 w-full">
+          <h1 class="text-4xl font-bold italic text-left text-black">Tasks</h1>
+          <hr class="mt-2 border-black border-t-2 w-full">
+
+          <!-- Task -->
+          
+          <div id="tasks" class="w-full">
+          </div>
+
+          <!-- Add Button -->
+          <div class="flex w-full justify-end">
+            <button id="addTask" class="bg-gray-200 py-6 text-black font-semibold text-xl mt-4 p-8 w-full">+ Add Task</button>
+          </div>
+        </div>
+      </div>
+
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-gray-600 py-4 bg-pomo-gray body-font">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+        <svg xmlns="http://www.w3.org/2000" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-yellow-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">PomoThink</span>
+      </a>
+      <p class="text-sm text-white sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2022 PomoThink
+        <a href="" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank"></a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a class="text-white">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-white">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-white">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-white">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </footer>
+
+  <!-- Javascript for Dropdown -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () =>
+    {
+      const profileOverlay = document.querySelector('#profileOverlay')
+      const profileButton = document.querySelector('#profileButton')
+      const exitAccountBtn = document.querySelector('#exitAccountBtn')
+
+      profileButton.addEventListener('click', () =>
+      {
+        profileOverlay.classList.toggle('hidden')
+        profileButton.classList.toggle('bg-white')
+      })
+      exitAccountBtn.addEventListener('click', () =>
+      {
+        profileOverlay.classList.add('hidden')
+        
+      })
+
+    })
+  </script>
+  <script src="https://kit.fontawesome.com/3c6352f40f.js" crossorigin="anonymous"></script>
+  <!-- Javascript for Settings Modal -->
+  <script>
+   window.addEventListener('DOMContentLoaded', () => 
+   {
+     const overlaySettings = document.querySelector('#overlaySettings')
+     const settingsBtn = document.querySelector('#settingsButton')
+     const exitBtn = document.querySelector('#exit-modal')
+     const okBtn = document.querySelector('#ok-btn')
+
+     settingsBtn.addEventListener('click', () =>
+     {
+       overlaySettings.classList.toggle('hidden')
+       overlaySettings.classList.toggle('flex')
+       body.classList.toggle('bg-black')
+
+      })
+      exitBtn.addEventListener('click', () =>
+      {
+        overlaySettings.classList.toggle('hidden')
+        overlaySettings.classList.toggle('flex')
+      })
+      okBtn.addEventListener('click', () =>
+     {
+       overlaySettings.classList.toggle('hidden')
+       overlaySettings.classList.toggle('flex')
+      })
+   })
+
+  </script>
+
+  <!-- Javascript for Report Modal -->
+  <script>
+    window.addEventListener('DOMContentLoaded', () =>
+    {
+      // Divs
+      const overlayReport = document.querySelector('#overlayReport')
+      const overlayModal = document.querySelector('#overlayModal')
+      const summary = document.querySelector('#summary')
+      const detail = document.querySelector('#detail')
+      const ranking = document.querySelector('#ranking')
+
+      // Buttons
+      const reportBtn = document.querySelector('#reportButton')
+      const summaryBtn = document.querySelector('#summaryButton')
+      const detailBtn = document.querySelector('#detailButton')
+      const rankingBtn = document.querySelector('#rankingButton')
+      const exitBtnReport = document.querySelector('#exit-modal-report')
+
+      reportBtn.addEventListener('click', () =>
+      {
+        overlayReport.classList.toggle('hidden')
+        overlayReport.classList.toggle('flex')
+        summary.classList.remove('hidden')
+        detail.classList.add('hidden')
+        ranking.classList.add('hidden')
+        window.getAnalytics();
+      })
+      summaryBtn.addEventListener('click', () =>
+      {
+        overlayModal.classList.add('mt-16')
+        summary.classList.remove('hidden')
+        detail.classList.add('hidden')
+        ranking.classList.add('hidden')
+      })
+      detailBtn.addEventListener('click', () =>
+      {
+        overlayModal.classList.remove('mt-16')
+        summary.classList.add('hidden')
+        detail.classList.remove('hidden')
+        ranking.classList.add('hidden')
+      })
+      rankingBtn.addEventListener('click', () =>
+      {
+        overlayModal.classList.remove('mt-16')
+        summary.classList.add('hidden')
+        detail.classList.add('hidden')
+        ranking.classList.remove('hidden')
+      })
+      exitBtnReport.addEventListener('click', () =>
+      {
+        overlayReport.classList.toggle('hidden')
+        overlayReport.classList.toggle('flex')
+      })
+    })
+  </script>
+
+ 
+  
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/moment@^2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-moment@^1"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="./js/settings.js"></script>
+  <script src="./js/alarm.js"></script>
+  <script src="./js/session.js"></script>
+  <script src="./js/timer.js"></script>
+  <script src="./js/todo.js"></script>
+  <script src="./js/analytics.js"></script>
+</body>
+</html>

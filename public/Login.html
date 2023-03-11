@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script
+	  src="https://kit.fontawesome.com/7bd744180e.js"
+	  crossorigin="anonymous"> 
+	</script>
+	<meta name="google-signin-client_id" content="743986243727-2gli5fqucoe4cpj7p7h1sh87injnerc1.apps.googleusercontent.com">
+	<link rel="stylesheet" href="./style.css" />
+	<title>Login</title>
+</head>
+<body>
+	
+	
+<div class="min-h-screen bg-no-repeat bg-cover bg-center" style="background-image: url(./imgs/Login\ Page\ Grey.jpg);">
+<div class="flex justify-end">
+	<div class="bg-pomo-gray text-white min-h-screen w-1/2 flex justify-center items-center">
+		<div>
+			<form class="space-y-2" id="loginForm">
+				<div>
+					<!-- Logo -->
+					<a href="index.html"><div class="sm:flex flex-1 mb-10"><img class="w-3/4" src="./imgs/PomoThink Logo.png"></div></a>
+					<h1 class="text-2xl font-bold">Login to your account</h1>
+					<hr class="my-4 border-pomo-orange">
+					<p class="text-xs my-4 font-light">Need a PomoThink Account? <a href="/signup"><span class="font-bold">Create an account</span></a> </p>
+				</div>
+				<div class="my-3">
+					<label class="block text-md mb-2" for="email">Email</label>
+					<input id="loginEmail" class="px-4 w-full border-2 py-2 rounded-md text-sm outline-none" type="email" name="Email" placeholder="Email" style="color: black !important">
+				</div>
+				<div class="mt-5">
+					<label class="block text-md mb-2" for="password">Password</label>
+					<input id="loginPassword" class="px-4 w-full border-2 py-2 rounded-md text-sm outline-none" type="password" name="password" placeholder="Password" style="color: black !important">
+					</div>
+						<div class="flex justify-between">
+							<a href="/forgotpassword"><span class="text-sm text-white hover:underline cursor-pointer">Forgot password?</span></a>
+						</div>
+						<div class="">
+							<button class="mt-4 mb-3 w-full bg-pomo-orange hover:bg-yellow-400 text-white py-2 rounded-md transition duration-100">Login now</button>
+							<div class="flex  space-x-2 justify-center items-end text-black py-2 rounded-md transition duration-100">
+
+								<!--<button class="flex items-center justify-center"> 
+									<img class="mx-1" src="./imgs/Google Icon.svg" alt="">
+									Sign-in with google
+								</button> !-->
+								<div class="g-signin2 flex w-full items-center justify-center" data-onsuccess="onSignIn"></div>
+							</div>
+						</div>
+			</form>
+			<p class="mt-8"> Dont have an account? <span class="cursor-pointer text-sm text-white"> Join free today</span></p>
+		</div>
+	</div>
+</div>
+</div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="./js/script.js"></script>
+<script>
+	$(document).ready(function() {
+		if(document.cookie.indexOf("token") !== -1) {
+			location.href="/app";
+		}
+	})
+</script>
+</body>
+</html>

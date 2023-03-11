@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+	  src="https://kit.fontawesome.com/7bd744180e.js"
+	  crossorigin="anonymous"> 
+	</script>
+	<link rel="stylesheet" href="/style.css" />
+    <title>Create Username</title>
+</head>
+
+<body>
+    <div class="min-h-screen bg-no-repeat bg-cover bg-center" style="background-image: url(./imgs/Login\ Page\ Grey.jpg);">
+        <div class="flex justify-end">
+            <div class="bg-pomo-gray text-white min-h-screen w-full flex justify-center items-center">
+                <div>
+                    <form class="space-y-2" id="finishRegisterForm">
+                        <div>
+                            <!-- Logo -->
+                            <a href="/"><div class="sm:flex flex-1 mb-10"><img class="w-3/4" src="/imgs/PomoThink Logo.png"></div></a>
+                            <h2 class="text-2xl font-light mb-5">User Registration</h2>
+                        </div>
+
+                        <!-- Create Username -->
+                        <div>
+                            <label class="block text-md mb-2" for="email">Username</label>
+                            <input id="finishRegisterUsername" class="px-4 w-full border-2 py-2 rounded-md text-sm outline-none" type="text" name="Username" placeholder="" style="color:black !important">
+                        </div>
+                        <div>
+                            <label class="block text-md mb-2" for="email">Password</label>
+                            <input id="finishRegisterPassword" class="px-4 w-full border-2 py-2 rounded-md text-sm outline-none" type="password" name="password" placeholder="" style="color:black !important">
+                        </div>
+                        <div>
+                            <label class="block text-md mb-2" for="email">Password (Confirm)</label>
+                            <input id="finishRegisterConfPassword" class="px-4 w-full border-2 py-2 rounded-md text-sm outline-none" type="password" name="password" placeholder="" style="color:black !important">
+                        </div>
+                                <div class="">
+                                    <button class="mt-4 mb-3 w-full bg-pomo-orange hover:bg-yellow-400 text-white py-2 rounded-md transition duration-100">Create Account</button>
+                                </div>
+                    </form>
+                    <p class="mt-2 text-center"> Try other methods?
+                        <br>
+                        <span class="cursor-pointer text-sm text-white hover:underline">
+                        <a href="/Login.html">Login</a>
+                    </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        </div>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/js/script.js"></script>    
+</body>
+</html> 

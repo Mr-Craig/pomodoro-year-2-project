@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script
+      src="https://kit.fontawesome.com/7bd744180e.js"
+      crossorigin="anonymous"> 
+    </script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Donation</title>
+</head>
+
+<body class="font-Roboto">
+  <!-- Header -->
+  <header class="body-font bg-pomo-white py-12">  
+     <!-- Navbar -->
+     <nav class="flex items-center justify-between bg-pomo-gray p-4 fixed w-full z-10 top-0">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <!-- Logo -->
+        <a href="index.html" class="cursor-pointer flex items-center">
+          <div class="flex flex-1 mb-3">
+            <img class="w-3/4" src="./imgs/PomoThink Logo.png">
+          </div>
+        </a>
+      </div>
+      <!-- Navbar links -->
+      <div class="w-full flex-grow flex justify-end" id="nav-content">
+        <ul class="flex justify-end flex-1 items-center mt-3">
+          <a href="/login"><button class="inline-flex items-center py-1 px-3 focus:outline-none rounded-2xl text-base mt-2 mx-4 bg-pomo-gray text-white border-2 transition ease-in-out hover:bg-pomo-light-gray hover:text-black hover:border-opacity-0 duration-300">Login 
+          </button></a>
+        </ul>
+      </div>
+    </nav>  
+
+  </header>
+
+  <!-- Hero -->
+  <section class="bg-pomo-white text-white body-font">
+    <div class="container mx-auto w-screen h-screen flex md:flex-row flex-col items-center">
+                <!-- Slide 1 -->
+                <div class="absolute inset-0 text-white flex items-center justify-start lg:text-3xl md:text-lg transition-all ease-in-out duration-1000 transform translate-x-0 slide">
+                  <h2 class="absolute mx-16 bg-gray-500 bg-opacity-50 rounded-xl">One donation can multiply 
+                    <br>
+                    indefinitely  
+                  </h2>
+                  <div class="absolute mx-16 mt-36">
+                    <a href="https://www.justgiving.com/actiontutoring" target="_blank">
+                    <button class="inline-flex py-2 px-6 focus:outline-none rounded text-lg bg-pomo-gray text-white border-2 transition ease-in-out hover:bg-pomo-orange hover:border-opacity-0 duration-300">ActionTutoring</button>
+                  </a>
+                </div>
+                  <img class="w-screen" src="./imgs/donation-1.jpg" alt="">
+                </div>
+                <!-- Slide 2 -->
+                <div class="absolute inset-0 text-white flex items-center justify-start lg:text-3xl md:text-lg transition-all ease-in-out duration-1000 transform translate-x-full slide">
+                  <h2 class="absolute mx-16 bg-gray-500 bg-opacity-50 rounded-xl">Support educational charities
+                    <br>
+                    worldwide  
+                  </h2>
+                  <div class="absolute mx-16 mt-36">
+                  <a href="https://www.edseed.me/?gclid=Cj0KCQiAxoiQBhCRARIsAPsvo-xRaFlaw-mHUvuM3oydo71FHiZkFktS_8F47QuYbRNpGlWkTvWwGWUaAqYTEALw_wcB" target="_blank">
+                    <button class=" inline-flex py-2 px-6 focus:outline-none rounded text-lg bg-pomo-gray text-white border-2 transition ease-in-out hover:bg-pomo-orange hover:border-opacity-0 duration-300">edSeed</button>
+                  </a>
+                </div>
+                  <img class="w-screen" src="./imgs/donation-2.jpg" alt="">
+                </div>
+                <!-- Slide 3 -->
+                <div class="absolute inset-0 text-white flex items-center justify-start lg:text-3xl md:text-lg transition-all ease-in-out duration-1000 transform translate-x-full slide">
+                  <h2 class="absolute mx-16 bg-gray-500 bg-opacity-50 rounded-xl">Be the spark that ignites
+                    <br>
+                    positive change  
+                  </h2>
+                  <div class="absolute mx-16 mt-36">
+                  <a href="https://www.actionaid.org.uk/changelives/rg/donate-to-support-girls-education?src=ppc&utm_content=&gclid=Cj0KCQiAxoiQBhCRARIsAPsvo-yt_2VHoSNo3W4oOvL2couxPz86fiN0E7NXso0FHHzcZB_7sGPwQJYaAqXbEALw_wcB&gclsrc=aw.ds" target="_blank">
+                    <button class=" inline-flex py-2 px-6 focus:outline-none rounded text-lg bg-pomo-gray text-white border-2 transition ease-in-out hover:bg-pomo-orange hover:border-opacity-0 duration-300">actionAid</button>
+                  </a>
+                </div>
+                  <img class="w-screen" src="./imgs/donation-3.jpg" alt="">
+                </div>
+                <div onclick="nextSlide()" class="fixed bottom-0 right-0 bg-white w-16 h-16 flex items-center justify-center text-black cursor-pointer">&#x276F;</div>
+                <div onclick="previousSlide()" class="fixed bottom-0 right-0 bg-white w-16 h-16 mr-16 border-r border-gray-400 flex items-center justify-center text-black cursor-pointer">&#x276E;</div>
+      </div>
+  </section>
+
+
+
+  <!-- Footer -->
+  <footer class="text-gray-600 body-font">
+    <div class="container px-5 py-20 my-auto mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-yellow-500 rounded-full" viewBox="0 0 24 24">
+          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+        </svg>
+        <span class="ml-3 text-xl">PomoThink</span>
+      </a>
+      <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© 2022 PomoThink —
+        <a class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">Group 5</a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a class="text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-500">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </footer>
+
+  <!--Container-->
+	<!-- <div class="container shadow-lg mx-auto bg-white mt-24 md:mt-18">
+
+	</div> -->
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script>
+		//Javascript to toggle the menu
+		document.getElementById('nav-toggle').onclick = function(){
+			document.getElementById("nav-content").classList.toggle("hidden");
+		}
+	</script>
+
+
+  <!-- Slider functions -->
+    <script>
+//         setTimeout(function(){
+//     let activeSlide = document.querySelector('.slide.translate-x-0');
+//     activeSlide.classList.remove('translate-x-0');
+//     activeSlide.classList.add('-translate-x-full');
+    
+//     let nextSlide = activeSlide.nextElementSibling;
+//     nextSlide.classList.remove('translate-x-full');
+//     nextSlide.classList.add('translate-x-0');
+// }, 3000);
+function nextSlide(){
+    let activeSlide = document.querySelector('.slide.translate-x-0');
+    activeSlide.classList.remove('translate-x-0');
+    activeSlide.classList.add('-translate-x-full');
+    
+    let nextSlide = activeSlide.nextElementSibling;
+    nextSlide.classList.remove('translate-x-full');
+    nextSlide.classList.add('translate-x-0');
+}
+
+function previousSlide(){
+    let activeSlide = document.querySelector('.slide.translate-x-0');
+    activeSlide.classList.remove('translate-x-0');
+    activeSlide.classList.add('translate-x-full');
+    
+    let previousSlide = activeSlide.previousElementSibling;
+    previousSlide.classList.remove('-translate-x-full');
+    previousSlide.classList.add('translate-x-0');
+}
+    </script>
+
+</body>
+</html>
